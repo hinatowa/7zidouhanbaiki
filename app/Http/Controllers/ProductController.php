@@ -52,17 +52,17 @@ class ProductController extends Controller
 
             $product = new Product();
             
-            $product->company_id = $companies(["product_id"]);
+            $product->company_id = $request->companies_id;
             $product->product_name = $request->name;
             $product->price = $request->price;
             $product->stock = $request->stock;
             $product->comment = $request->comment;
 
-            if(request('image')){
+            if($request->image){
                 $original = request()->file('image')->getClientOriginalName();
                 $name = date('Ymd_His').'_'.$original;
                 request()->file('image')->move('storage/images',$name);
-                $post->image = $name;
+                $product->img_path = $name;
             }
 
             $product->save();
