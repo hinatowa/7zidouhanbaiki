@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Product;
+use App\Models\Sale;
+use App\Models\Companie;
 
 class ProductController extends Controller
 {
@@ -11,9 +14,11 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Product $products)
     {
-        //
+        $products = Product::latest()->paginate(5);
+       return view('index',compact('products'))
+        ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -23,7 +28,9 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        $companies = companie::all();
+        return view('product.create')
+        ->with('companies',$companies);
     }
 
     /**
@@ -34,7 +41,33 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'product_name' =>'required|max:20',
+            'company_id' => 'required|integer',
+            'price' => 'required|integer',
+            'stock' => 'required|integer',
+            'comment' => 'required|integer',
+            'mage' => 'image|max:1024'
+            ]);
+
+            $product = new Product();
+            
+            $product->company_id = $companies(["product_id"]);
+            $product->product_name = $request->name;
+            $product->price = $request->price;
+            $product->stock = $request->stock;
+            $product->comment = $request->comment;
+
+            if(request('image')){
+                $original = request()->file('image')->getClientOriginalName();
+                $name = date('Ymd_His').'_'.$original;
+                request()->file('image')->move('storage/images',$name);
+                $post->image = $name;
+            }
+
+            $product->save();
+            return redirect()->route('list')
+            ->with('message','商品を登録しました');
     }
 
     /**
