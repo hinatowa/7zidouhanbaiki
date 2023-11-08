@@ -11,8 +11,8 @@
     </div>
     
     <div style="text-align:right;">
-        <form action="{{ route('product.store') }}" method="POST">
-        @csrf
+        <form  action="{{ route('product.store') }}"  method="POST" enctype="multipart/form-data">
+         @csrf
         <div class="col-12 mb-2 mt-2">
             <div class="form-group">
                 <input type="text" name="name" class="form-control" placeholder="商品名">
@@ -60,12 +60,9 @@
         </div>
         <div class="image-table">
             <tr>
-                <!-- <td><img  name="img_path"class="ju_image" src="#" alt="image">商品画像</td>
-                <td><input id="image" type="file" name="image" ></td> -->
-                <form method="POST" action="/" enctype="multipart/form-data">
-                 @csrf
-                    <input type="file" name="image">
-                </form>
+                <td><img  name="img_path"class="ju_image" src="#" alt="image">商品画像</td>
+                <td><input id="image" type="file" name="image" ></td>
+                <input type="file" name="image">
             </tr>
         </div>
         <div class="col-12 mb-2 mt-2">
