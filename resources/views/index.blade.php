@@ -32,18 +32,14 @@
         @foreach ($products as $product)
         <tr>
             <td style="text-align:right">{{ $product->id }}</td>
-            <td><img style="width:80px;" src="{{asset($products->img_path)}}" ></td>
+            <td><img style="width:80px;" src="{{asset($product->img_path)}}" ></td>
             <td style="text-align:right">{{ $product->product_name }}</td>
             <td style="text-align:right">{{ $product->price }}円</td>
             <td style="text-align:right">{{ $product->stock }}</td>
             <td style="text-align:right">{{ $product->company_id }}</td>
             <td>
-                <a class="btn btn-primary" href="{{ route('product.show') }}">詳細</a> 
+                <a class="btn btn-primary" href="#">詳細</a> 
             </td>
-            <td>
-                <form  class="id">
-                    <input data-user_id="{{$companie->id}}" type="submit" class="btn btn-danger btn-dell" value="削除">
-                </form>
         </tr>
         @endforeach
     </table>
