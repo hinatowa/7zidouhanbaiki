@@ -14,7 +14,7 @@
                 </form>
             </div>
             <div class="text-right">
-            <a class="btn btn-success" href="{{ route('products.create') }}">新規登録</a>
+            <a class="btn btn-success" href="{{ route('product.create') }}">新規登録</a>
             </div>
         </div>
     </div>
