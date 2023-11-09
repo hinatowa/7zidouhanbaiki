@@ -11,7 +11,7 @@
     </div>
     
     <div style="text-align:right;">
-        <form  action="{{ route('product.store') }}"  method="POST" enctype="multipart/form-data">
+        <form  action="#"  method="POST" enctype="multipart/form-data">
          @csrf
         <div class="col-12 mb-2 mt-2">
             <div class="form-group">
@@ -26,7 +26,7 @@
             <select name="sale" class="form-select">
                     <option>分類を選択してください</otion>
                     @foreach ($companies as $companie)
-                        <option value="{{ $companie->id }}">{{ $companie->product_id }}</otion>
+                        <option value="{{ $companie->id }}">{{ $companie->company_name }}</otion>
                     @endforeach
                 </select>
                 @error('company_id')
@@ -60,13 +60,13 @@
         </div>
         <div class="image-table">
             <tr>
-                <td><img  name="img_path"class="ju_image" src="#" alt="image">商品画像</td>
-                <td><input id="image" type="file" name="image" ></td>
+                <!-- <td><img  name="img_path"class="ju_image" src="#" alt="image">商品画像</td>
+                <td><input id="image" type="file" name="image" ></td> -->
                 <input type="file" name="image">
             </tr>
         </div>
         <div class="col-12 mb-2 mt-2">
-                <button type="submit" class="btn btn-primary w-100">登録</button>
+                <button type="submit" class="btn btn-success">登録</button>
         </div>
         
         

@@ -29,7 +29,7 @@ class ProductController extends Controller
     public function create()
     {
         $companies = companie::all();
-        return view('product.create')
+        return view('create')
         ->with('companies',$companies);
     }
 
