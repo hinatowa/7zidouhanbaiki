@@ -66,7 +66,7 @@ class ProductController extends Controller
             }
 
             $product->save();
-            return redirect()->route('list')
+            return redirect()->route('product.index')
             ->with('message','商品を登録しました');
     }
 
