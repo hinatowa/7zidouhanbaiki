@@ -11,7 +11,7 @@
     </div>
     
     <div style="text-align:right;">
-        <form  action="#"  method="POST" enctype="multipart/form-data">
+        <form  action="{{ route('product.store') }}"  method="POST" enctype="multipart/form-data">
          @csrf
         <div class="col-12 mb-2 mt-2">
             <div class="form-group">
@@ -29,7 +29,7 @@
                         <option value="{{ $companie->id }}">{{ $companie->company_name }}</option>
                     @endforeach
                 </select>
-                @error('company_id')
+                @error('companies_id')
                     <span style="color:red;">分類を選択してください</span>
                 @enderror
             </div>
