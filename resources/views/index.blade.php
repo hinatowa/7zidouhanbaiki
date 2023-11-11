@@ -38,7 +38,7 @@
             <td style="text-align:right">{{ $product->stock }}</td>
             <td style="text-align:right">{{ $product->company_id }}</td>
             <td>
-                <a class="btn btn-primary" href="#">詳細</a> 
+                <a class="btn btn-primary" href="{{ route('product.edit',$product->id) }}">詳細</a> 
             </td>
         </tr>
         @endforeach
