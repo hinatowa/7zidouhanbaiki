@@ -46,7 +46,7 @@ class ProductController extends Controller
             'companies_id' => 'required|integer',
             'price' => 'required|integer',
             'stock' => 'required|integer',
-            'comment' => 'required|integer',
+            'comment' => 'required|max:140',
             'mage' => 'image|max:1024'
             ]);
 
