@@ -23,7 +23,7 @@
         </div>
         <div class="col-12 mb-2 mt-2">
             <div class="form-group">
-            <select name="sale" class="form-select">
+            <select name="companies_id" class="form-select">
                     <option>分類を選択してください</option>
                     @foreach ($companies as $companie)
                         <option value="{{ $companie->id }}">{{ $companie->company_name }}</option>
