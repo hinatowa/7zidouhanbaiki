@@ -40,6 +40,13 @@
             <td>
                 <a class="btn btn-primary" href="{{ route('product.edit',$product->id) }}">詳細</a> 
             </td>
+            <td style=”text-align:center”>
+                <form action="{{ route('product.destroy',$product->id) }}" method="POST">
+                @csrf
+                @method('DELETE')
+                    <button type="submit" class="btn btn-sm btn-danger" onclick='return confirm("削除しますか？");'>削除</button>
+                </form>
+            </td>
         </tr>
         @endforeach
     </table>
