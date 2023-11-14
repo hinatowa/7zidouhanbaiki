@@ -28,6 +28,6 @@ Route::get('/product/create', [App\Http\Controllers\ProductController::class,'cr
 
 Route::post('/product/store', [App\Http\Controllers\ProductController::class,'store'])->name('product.store');
 
-Route::get('/product/edit', [App\Http\Controllers\ProductController::class,'edit'])->name('product.edit');
+Route::get('/product/edit/{product}', [App\Http\Controllers\ProductController::class,'edit'])->name('product.edit');
 
-Route::put('/product/edit',[App\Http\Controllers\ProductController::class,'update'])->name('product.update');
+Route::put('/product/edit/{product}',[App\Http\Controllers\ProductController::class,'update'])->name('product.update');

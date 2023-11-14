@@ -27,7 +27,7 @@
             <select name="companies_id" class="form-select">
                     <option>分類を選択してください</option>
                     @foreach ($companies as $companie)
-                        <option value="{{ $companie->id }}"@if ($companie->id==$product->companie) selected @endif>{{ $companie->company_name }}</option>
+                        <option value="{{ $companie->id }}"@if ($companie->id==$product->company_id) selected @endif>{{ $companie->company_name }}</option>
                     @endforeach
                 </select>
                 @error('companies_id')
@@ -67,7 +67,7 @@
             </tr>
         </div>
         <div class="col-12 mb-2 mt-2">
-                <button type="submit" class="btn btn-success">登録</button>
+                <button type="submit" class="btn btn-success">変更</button>
         </div>
         
         
