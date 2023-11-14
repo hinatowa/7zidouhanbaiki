@@ -100,10 +100,35 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,Product $product)
     {
-        //
+        $request->validate([
+            'name' =>'required|max:20',
+            'companies_id' => 'required|integer',
+            'price' => 'required|integer',
+            'stock' => 'required|integer',
+            'comment' => 'required|max:140',
+            'mage' => 'image|max:1024'
+            ]);
+
+            $product->company_id = $request->companies_id;
+            $product->product_name = $request->name;
+            $product->price = $request->price;
+            $product->stock = $request->stock;
+            $product->comment = $request->comment;
+
+            if($request->image){
+                $original = request()->file('image')->getClientOriginalName();
+                $name = date('Ymd_His').'_'.$original;
+                request()->file('image')->move('storage/images',$name);
+                $product->img_path = $name;
+            }
+
+            $product->save();
+
+            return redirect()->route('product.index');
     }
+
 
     /**
      * Remove the specified resource from storage.
