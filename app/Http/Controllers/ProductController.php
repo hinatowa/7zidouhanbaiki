@@ -18,6 +18,7 @@ class ProductController extends Controller
     {
         $products = Product::latest()->paginate(5);
        return view('index',compact('products'));
+       
     }
 
     /**
