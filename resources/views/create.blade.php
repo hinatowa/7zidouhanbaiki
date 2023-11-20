@@ -5,7 +5,7 @@
 <div class="row">
     <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2 style="font-size:1rem;">商品新規登録画面</h2>
+                <h2 style="font-size:1rem;">商品編集画面</h2>
             </div>
         </div>
     </div>
