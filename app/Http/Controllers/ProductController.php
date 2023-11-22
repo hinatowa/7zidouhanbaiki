@@ -14,12 +14,36 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Product $products)
+    public function index(Request $request)
     {
-        $products = Product::latest()->paginate(5);
+
+         /* テーブルから全てのレコードを取得する */
+         $products = Product::query();
+
+
+         /* キーワードから検索処理 */
+         $keyword = $request->input('keyword');
+         if(!empty($keyword)) {//$keyword　が空ではない場合、検索処理を実行します
+             $products->where('product_name', '=', "%{$keyword}")
+            //  ->get();
+             }
+        if(!empty($keyword)) {//$keyword　が空ではない場合、検索処理を実行します
+            $products->where('product_name', '=', "%{$keyword}")
+            
+             }
+             ->get();
+         $products = $products->paginate(5);
+        // $products = Product::latest()->paginate(5);
        return view('index',compact('products'));
        
     }
+
+    // public function index(Product $products)
+    // {
+    //     $products = Product::latest()->paginate(5);
+    //    return view('index',compact('products'));
+       
+    // }
 
     /**
      * Show the form for creating a new resource.
