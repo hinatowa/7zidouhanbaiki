@@ -44,7 +44,7 @@
             <td style="text-align:right">{{ $product->stock }}</td>
             <td style="text-align:right">{{ $product->companies->company_name }}</td>
             <td>
-                <a class="btn btn-primary" href="{{ route('product.edit',$product->id) }}">詳細</a> 
+                <a class="btn btn-primary" href="{{ route('product.show',$product->id) }}">詳細</a> 
             </td>
             <td style=”text-align:center”>
                 <form action="{{ route('product.destroy',$product->id) }}" method="POST">

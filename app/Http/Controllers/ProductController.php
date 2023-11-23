@@ -19,7 +19,7 @@ class ProductController extends Controller
 
          /* テーブルから全てのレコードを取得する */
          $products = Product::query();
-         $companies = Companie::all();
+         $companies = Companie::query();
 
 
          /* キーワードから検索処理 */
@@ -102,9 +102,11 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Product $product)
     {
-        //
+        $companies = Companie::all();
+        return view('show',compact('product'))
+        ->with('companies',$companies);
     }
 
     /**

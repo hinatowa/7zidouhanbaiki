@@ -33,3 +33,5 @@ Route::get('/product/edit/{product}', [App\Http\Controllers\ProductController::c
 Route::put('/product/edit/{product}',[App\Http\Controllers\ProductController::class,'update'])->name('product.update');
 
 Route::delete('/products/{product}',[App\Http\Controllers\ProductController::class,'destroy'])->name('product.destroy');
+
+Route::get('/product/show/{product}', [App\Http\Controllers\ProductController::class,'show'])->name('product.show');
