@@ -19,19 +19,21 @@ class ProductController extends Controller
 
          /* テーブルから全てのレコードを取得する */
          $products = Product::query();
+         $companies = Companie::all();
 
 
          /* キーワードから検索処理 */
          $keyword = $request->input('keyword');
          if(!empty($keyword)) {//$keyword　が空ではない場合、検索処理を実行します
-             $products->where('product_name', '=', "%{$keyword}")
-            //  ->get();
+             $products->where('product_name', '=', "%{$keyword}%");
              }
-        if(!empty($keyword)) {//$keyword　が空ではない場合、検索処理を実行します
-            $products->where('product_name', '=', "%{$keyword}")
-            
-             }
+
+         $companies_name = $request->input('companies_name');
+         if(!empty($companies_name)) {//$keyword　が空ではない場合、検索処理を実行します
+             $companies->where('company_name', '=', "%{$companies_name}%")
              ->get();
+             }
+             
          $products = $products->paginate(5);
         // $products = Product::latest()->paginate(5);
        return view('index',compact('products'));

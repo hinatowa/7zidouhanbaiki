@@ -10,7 +10,13 @@
                 <form action="{{ route('product.index') }}" method="GET">
                 @csrf
                     <input type="text" name="keyword">
-                    <input type="submit" value="検索">
+                    <select name="medium" data-toggle="select">
+                        <option value="">メーカー名</option>
+                            @foreach ($companies as $companie)
+                        <option value="{{ $companie->id }}">{{ $companie->company_name }}</option>
+                            @endforeach
+                    </select>
+                        <input type="submit" class="btn" value="検索">
                 </form>
             </div>
             <div class="text-right">
@@ -32,11 +38,11 @@
         @foreach ($products as $product)
         <tr>
             <td style="text-align:right">{{ $product->id }}</td>
-            <td><img style="width:80px;" src="{{asset($product->img_path)}}" ></td>
+            <td><img style="width:80px;" src="{{asset(storage/images/$product->img_path)}}" ></td>
             <td style="text-align:right">{{ $product->product_name }}</td>
             <td style="text-align:right">{{ $product->price }}円</td>
             <td style="text-align:right">{{ $product->stock }}</td>
-            <td style="text-align:right">{{ $product->company_id }}</td>
+            <td style="text-align:right">{{ $product->companies->company_name }}</td>
             <td>
                 <a class="btn btn-primary" href="{{ route('product.edit',$product->id) }}">詳細</a> 
             </td>
