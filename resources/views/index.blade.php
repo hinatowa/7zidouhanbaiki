@@ -16,6 +16,7 @@
                         <option value="{{ $companie->id }}">{{ $companie->company_name }}</option>
                             @endforeach
                     </select>
+
                         <input type="submit" class="btn" value="検索">
                 </form>
             </div>
@@ -38,11 +39,11 @@
         @foreach ($products as $product)
         <tr>
             <td style="text-align:right">{{ $product->id }}</td>
-            <td><img style="width:80px;" src="{{asset(storage/images/$product->img_path)}}" ></td>
+            <td><img style="width:80px;" src="{{asset('storage/'.$product->img_path)}}" ></td>
             <td style="text-align:right">{{ $product->product_name }}</td>
             <td style="text-align:right">{{ $product->price }}円</td>
             <td style="text-align:right">{{ $product->stock }}</td>
-            <td style="text-align:right">{{ $product->companies->company_name }}</td>
+            <td style="text-align:right">{{ $product->company_name }}</td>
             <td>
                 <a class="btn btn-primary" href="{{ route('product.show',$product->id) }}">詳細</a> 
             </td>

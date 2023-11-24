@@ -5,13 +5,13 @@
 <div class="row">
     <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2 style="font-size:1rem;">商品編集画面</h2>
+                <h2 style="font-size:1rem;">商品情報詳細画面</h2>
             </div>
         </div>
     </div>
     
     <div style="text-align:right;">
-        <form  action="{{ route('product.update',$product->id) }}"  method="POST" enctype="multipart/form-data">
+        <form  action="{{ route('product.edit',$product->id) }}"  method="POST" enctype="multipart/form-data">
          @method('PUT')
          @csrf
         <div class="col-12 mb-2 mt-2">
@@ -67,12 +67,12 @@
             </tr>
         </div>
         <div class="col-12 mb-2 mt-2">
-                <button type="submit" class="btn btn-success">変更</button>
+                <button type="submit" class="btn btn-success">編集</button>
         </div>
         
         
         <div class="col-12 mb-2 mt-2">
-            <a class="btn btn-success" href="{{ url('/products') }}">戻る</a>
+            <a class="btn btn-success" href="{{ url('/products/edit') }}">戻る</a>
         </div>
     </div>
 </form>

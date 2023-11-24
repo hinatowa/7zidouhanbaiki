@@ -30,13 +30,14 @@ class ProductController extends Controller
 
          $companies_name = $request->input('companies_name');
          if(!empty($companies_name)) {//$keyword　が空ではない場合、検索処理を実行します
-             $companies->where('company_name', '=', "%{$companies_name}%")
+             $companies->where('company_name', '=', "{$companies_name}")
              ->get();
              }
              
          $products = $products->paginate(5);
         // $products = Product::latest()->paginate(5);
-       return view('index',compact('products'));
+       return view('index',compact('products'))
+       ->with('companies',$companies);
        
     }
 
