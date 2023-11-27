@@ -14,6 +14,11 @@
         <form  action="{{ route('product.update',$product->id) }}"  method="POST" enctype="multipart/form-data">
          @method('PUT')
          @csrf
+         <div class="col-12 mb-2 mt-2">
+            <div class="form-group">
+                <p>ID:{{ $product->id }}</p>                
+            </div>
+        </div>
         <div class="col-12 mb-2 mt-2">
             <div class="form-group">
                 <input type="text" name="name" value="{{ $product->product_name }}" class="form-control" placeholder="商品名">

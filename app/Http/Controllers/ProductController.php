@@ -74,7 +74,7 @@ class ProductController extends Controller
             'price' => 'required|integer',
             'stock' => 'required|integer',
             'comment' => 'required|max:140',
-            'mage' => 'image|max:1024'
+            'image' => 'image|max:1024'
             ]);
 
             $product = new Product();
