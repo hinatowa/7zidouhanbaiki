@@ -19,7 +19,7 @@ class ProductController extends Controller
 
          /* テーブルから全てのレコードを取得する */
          $products = Product::query();
-         $companies = Companie::query();
+         $companies = companie::all();
 
 
          /* キーワードから検索処理 */
