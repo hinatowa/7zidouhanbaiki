@@ -11,9 +11,9 @@
     </div>
     
     <div style="text-align:left;">
-        <form  action="{{ route('product.edit',$product->id) }}"  method="POST" enctype="multipart/form-data">
+        <!-- <form  action="{{ route('product.edit',$product->id) }}"  method="POST" enctype="multipart/form-data">
          @method('PUT')
-         @csrf
+         @csrf -->
         
      <div class="row">
         <div class="col-12 mb-2 mt-2">

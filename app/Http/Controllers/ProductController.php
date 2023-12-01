@@ -28,12 +28,13 @@ class ProductController extends Controller
              $products->where('product_name', '=', "%{$keyword}%");
              }
 
-         $companies_name = $request->input('companies_name');
+         $companiey_name = $request->input('companies_name');
          if(!empty($companies_name)) {//$keyword　が空ではない場合、検索処理を実行します
-             $companies->where('company_name', '=', "{$companies_name}")
-             ->get();
+             $companies->where('company_name', '=', "{$companies_name}");
              }
              
+             Product::with('companie')->get();
+
          $products = $products->paginate(5);
         // $products = Product::latest()->paginate(5);
        return view('index',compact('products'))

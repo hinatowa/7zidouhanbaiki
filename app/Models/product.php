@@ -9,8 +9,9 @@ use Illuminate\Support\Facades\DB;
 class Product extends Model
 {
     use HasFactory;
-
+    // protected $table = 'companies';
     public function Companie(){
         return $this -> belongsTo(Companie::class);
     }
+    
 }
