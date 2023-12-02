@@ -11,9 +11,9 @@
     </div>
     
     <div style="text-align:left;">
-        <!-- <form  action="{{ route('product.edit',$product->id) }}"  method="POST" enctype="multipart/form-data">
+        <form  action="{{ route('product.edit',$product->id) }}"  method="POST" enctype="multipart/form-data">
          @method('PUT')
-         @csrf -->
+         @csrf
         
      <div class="row">
         <div class="col-12 mb-2 mt-2">
@@ -56,7 +56,8 @@
         </div>
     </div>
         <div class="col-12 mb-2 mt-2">
-            <a class="btn btn-success" href="{{ url('/product.edit') }}">編集</a>
+             <!-- <button type="submit" class="btn btn-success">編集</a> -->
+             <a class="btn btn-success" href="{{ url('/product/edit') }}">編集</a>
         </div>
         
         
