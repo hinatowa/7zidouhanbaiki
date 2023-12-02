@@ -18,19 +18,20 @@ class ProductController extends Controller
     {
 
          /* テーブルから全てのレコードを取得する */
-         $products = Product::query();
+         $products = Product::query();//select * FROM 'products'
          $companies = companie::all();
-
+         $products->select('products.*','companies.company_name');
+         $products->join('companies','products.company_id','=','companies.id');	//内部結合
 
          /* キーワードから検索処理 */
          $keyword = $request->input('keyword');
          if(!empty($keyword)) {//$keyword　が空ではない場合、検索処理を実行します
-             $products->where('product_name', '=', "%{$keyword}%");
+             $products->where('product_name', 'LIKE', "%{$keyword}%");//select * FROM products WHERE product_name LIKE '%コーラ%'
              }
 
-         $companiey_name = $request->input('companies_name');
-         if(!empty($companies_name)) {//$keyword　が空ではない場合、検索処理を実行します
-             $companies->where('company_name', '=', "{$companies_name}");
+         $companiey_id = $request->input('companies_name');
+         if(!empty($companiey_id)) {//$companiey_name　が空ではない場合、検索処理を実行します
+             $products->where('company_id', '=', "{$companiey_id}");//select * FROM products WHERE company_id = 1
              }
              
              Product::with('companie')->get();

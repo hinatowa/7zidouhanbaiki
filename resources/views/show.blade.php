@@ -56,8 +56,7 @@
         </div>
     </div>
         <div class="col-12 mb-2 mt-2">
-             <!-- <button type="submit" class="btn btn-success">編集</a> -->
-             <a class="btn btn-success" href="{{ url('/product/edit') }}">編集</a>
+             <a class="btn btn-success" href="{{ route('product.edit',$product->id) }}">編集</a>
         </div>
         
         

@@ -10,7 +10,7 @@
                 <form action="{{ route('product.index') }}" method="GET">
                 @csrf
                     <input type="text" name="keyword">
-                    <select name="medium" data-toggle="select">
+                    <select name="companies_name" data-toggle="select">
                         <option value="">メーカー名</option>
                             @foreach ($companies as $companie)
                         <option value="{{ $companie->id }}">{{ $companie->company_name }}</option>
@@ -43,7 +43,7 @@
             <td style="text-align:right">{{ $product->product_name }}</td>
             <td style="text-align:right">{{ $product->price }}円</td>
             <td style="text-align:right">{{ $product->stock }}</td>
-            <td style="text-align:right">{{ $companie->company_name }}</td>
+            <td style="text-align:right">{{ $product->company_name }}</td>
             <td>
                 <a class="btn btn-primary" href="{{ route('product.show',$product->id) }}">詳細</a> 
             </td>
