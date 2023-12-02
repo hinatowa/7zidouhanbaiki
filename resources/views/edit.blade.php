@@ -75,7 +75,7 @@
         
         
         <div class="col-12 mb-2 mt-2">
-            <a class="btn btn-success" href="{{ url('/products') }}">戻る</a>
+            <a class="btn btn-success" href="{{ route('product.show',$product->id) }}">戻る</a>
         </div>
     </div>
 </form>
