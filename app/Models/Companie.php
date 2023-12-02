@@ -10,7 +10,7 @@ class Companie extends Model
 {
     use HasFactory;
 
-    public function products(){
-        return $this -> hasMany(product::class);
+    public function Products(){
+        return $this -> hasMany(Product::class);
     }
 }
