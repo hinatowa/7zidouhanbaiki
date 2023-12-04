@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Sale;
 use App\Models\Companie;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -70,6 +71,8 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        try {
+            DB::beginTransaction();
         $request->validate([
             'name' =>'required|max:20',
             'companies_id' => 'required|integer',
@@ -97,6 +100,11 @@ class ProductController extends Controller
             $product->save();
             return redirect()->route('product.index')
             ->with('message','商品を登録しました');
+
+            DB::commit();
+             } catch (Throwable $e) {
+            DB::rollBack();
+            }
     }
 
     /**
@@ -134,6 +142,8 @@ class ProductController extends Controller
      */
     public function update(Request $request,Product $product)
     {
+        try {
+            DB::beginTransaction();
         $request->validate([
             'name' =>'required|max:20',
             'companies_id' => 'required|integer',
@@ -159,6 +169,11 @@ class ProductController extends Controller
             $product->save();
 
             return redirect()->route('product.index');
+
+            DB::commit();
+             } catch (Throwable $e) {
+            DB::rollBack();
+            }
     }
 
 
