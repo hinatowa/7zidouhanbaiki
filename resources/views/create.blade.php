@@ -29,7 +29,7 @@
                         <option value="{{ $companie->name }}">{{ $companie->company_name }}</option>
                     @endforeach
                 </select>
-                @error('companies_id')
+                @error('companies_name')
                     <span style="color:red;">メーカー名を選択してください</span>
                 @enderror
             </div>
