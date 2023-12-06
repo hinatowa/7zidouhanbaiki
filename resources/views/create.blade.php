@@ -10,7 +10,7 @@
         </div>
     </div>
     
-    <div style="text-align:right;">
+    <div style="text-align:left;">
         <form  action="{{ route('product.store') }}"  method="POST" enctype="multipart/form-data">
          @csrf
         <div class="col-12 mb-2 mt-2">
