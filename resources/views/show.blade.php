@@ -14,52 +14,79 @@
         <form  action="{{ route('product.edit',$product->id) }}"  method="POST" enctype="multipart/form-data">
          @method('PUT')
          @csrf
-        
-     <div class="row">
+        <table class="table table-bordered">
+
         <div class="col-12 mb-2 mt-2">
             <div class="form-group">
-                <p>ID:{{ $product->id }}</p>                
+            <tr>
+                <th>ID</th>
+                <td style="text-align:right">{{ $product->id }}</td>
+            </tr>
             </div>
         </div>
+
         <div class="col-12 mb-2 mt-2">
             <div class="form-group">
-                <p>商品画像:<img style="width:80px;" src="{{asset('storage/'.$product->img_path)}}" ></p>                
+            <tr>
+                <th>商品画像</th>
+                <td><img style="width:80px;" src="{{asset('storage/'.$product->img_path)}}" ></td>
+            </tr>
             </div>
         </div>
+
         <div class="col-12 mb-2 mt-2">
             <div class="form-group">
-                <p>商品名:{{ $product->product_name }}</p>                
+            <tr>
+                <th>商品名</th>
+                <td style="text-align:right">{{ $product->product_name }}</td>
+            </tr>
             </div>
         </div>
+
+            <tr>
         <div class="col-12 mb-2 mt-2">
             <div class="form-group">
-                <p>メーカー:  @foreach ($companies as $companie)
-                                @if ($companie->id==$product->company_id) {{ $companie->company_name }} @endif
-                             @endforeach
-                </p>
+                <th>メーカー</th>
+                <td style="text-align:right">
+                    @foreach ($companies as $companie)
+                        @if ($companie->id==$product->company_id) {{ $companie->company_name }} @endif
+                    @endforeach
+                </td>
+            </tr>
             </div>
         </div>
+
         <div class="col-12 mb-2 mt-2">
             <div class="form-group">
-                <p>価格:{{ $product->price }}</p>                
+            <tr>
+                <th>価格</th>
+                <td style="text-align:right">{{ $product->price }}円</td>
+            </tr>
+            <tr>
             </div>
         </div>
+
         <div class="col-12 mb-2 mt-2">
             <div class="form-group">
-                <p>在庫数:{{ $product->stock }}</p>                
+                <th>在庫数</th>
+                <td style="text-align:right">{{ $product->stock }}</td>
+            </tr>
             </div>
         </div>
+
         <div class="col-12 mb-2 mt-2">
             <div class="form-group">
-                <p>コメント:{{ $product->comment }}</p> 
+            <tr>
+                <th>コメント</th>
+                <td style="text-align:right">{{ $product->comment }}</td>
+            </tr>
             </div>
         </div>
-    </div>
+        </table>
         <div class="col-12 mb-2 mt-2">
              <a class="btn btn-success" href="{{ route('product.edit',$product->id) }}">編集</a>
         </div>
-        
-        
+
         <div class="col-12 mb-2 mt-2">
             <a class="btn btn-success" href="{{ url('/products') }}">戻る</a>
         </div>

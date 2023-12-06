@@ -14,7 +14,6 @@
         <form  action="{{ route('product.update',$product->id) }}"  method="POST" enctype="multipart/form-data">
          @method('PUT')
          @csrf
-         <div class="col-12 mb-2 mt-2">
             <div class="form-group">
                 <p>ID:{{ $product->id }}</p>                
             </div>
@@ -30,13 +29,13 @@
         <div class="col-12 mb-2 mt-2">
             <div class="form-group">
             <select name="companies_id" class="form-select">
-                    <option>分類を選択してください</option>
+                    <option>メーカー名を選択してください</option>
                     @foreach ($companies as $companie)
                         <option value="{{ $companie->id }}"@if ($companie->id==$product->company_id) selected @endif>{{ $companie->company_name }}</option>
                     @endforeach
                 </select>
                 @error('companies_id')
-                    <span style="color:red;">分類を選択してください</span>
+                    <span style="color:red;">メーカー名を選択してください</span>
                 @enderror
             </div>
         </div>

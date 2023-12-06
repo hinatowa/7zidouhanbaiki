@@ -26,7 +26,7 @@
             <select name="companies_id" class="form-select">
                     <option>メーカー名を選択してください</option>
                     @foreach ($companies as $companie)
-                        <option value="{{ $companie->id }}">{{ $companie->company_name }}</option>
+                        <option value="{{ $companie->name }}">{{ $companie->company_name }}</option>
                     @endforeach
                 </select>
                 @error('companies_id')
