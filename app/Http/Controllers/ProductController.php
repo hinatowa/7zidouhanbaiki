@@ -98,13 +98,15 @@ class ProductController extends Controller
             }
 
             $product->save();
-            return redirect()->route('product.index')
-            ->with('message','商品を登録しました');
 
             DB::commit();
              } catch (Throwable $e) {
             DB::rollBack();
             }
+            return redirect()->route('product.index')
+            ->with('message','商品を登録しました');
+
+            
     }
 
     /**
@@ -168,12 +170,14 @@ class ProductController extends Controller
 
             $product->save();
 
-            return redirect()->route('product.index');
-
             DB::commit();
              } catch (Throwable $e) {
             DB::rollBack();
             }
+
+            return redirect()->route('product.index');
+
+            
     }
 
 
