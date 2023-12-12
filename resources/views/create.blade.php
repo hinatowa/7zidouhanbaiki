@@ -60,8 +60,6 @@
         </div>
         <div class="image-table">
             <tr>
-                <!-- <td><img  name="img_path"class="ju_image" src="#" alt="image">商品画像</td>
-                <td><input id="image" type="file" name="image" ></td> -->
                 <input type="file" name="image">
             </tr>
         </div>
